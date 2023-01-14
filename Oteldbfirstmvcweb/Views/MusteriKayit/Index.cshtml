@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Oteldbfirstmvcweb.Models.MusteriKayit>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageadmin.cshtml";
+}
+
+<h4>Müşteri Kayıt Listele</h4>
+
+
+
+<p>
+    @Html.ActionLink("Müşteri Kaydı Oluştur", "Yeni", null, new { @class = "btn btn-success" })
+</p>
+<table class="table-striped alert-danger col-md-12">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.MAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.MSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.MCinsiyet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.MAdres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.Telefon)
+        </th>
+        
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(Model => item.MAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.MSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.MCinsiyet)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.MAdres)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.Telefon)
+            </td>
+
+            <td>
+                @Html.ActionLink("Düzenle", "Duzenle", new { id = item.MNo }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.MNo }, new { @class = "btn btn-success" })
+
+            </td>
+
+        </tr>
+    }
+</table>
+
+

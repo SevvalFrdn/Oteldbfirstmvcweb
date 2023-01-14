@@ -1,0 +1,77 @@
+﻿@model Oteldbfirstmvcweb.Models.UserMaster
+
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_LayoutPageRegister.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+
+
+                    <div class="card-body">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-floating mb-3">
+                            @Html.EditorFor(model => model.Name1, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "name", @type = "text", @id = "inputname" } })
+                            <label for="inputname">Name</label>
+                            @Html.ValidationMessageFor(model => model.Name1, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-floating mb-3">
+                            @Html.EditorFor(model => model.UserId, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Username", @type = "text", @id = "inputUsername" } })
+                            <label for="inputUsername">Username</label>
+                            @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-floating mb-3">
+                            @Html.EditorFor(model => model.Password1, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Password", @type = "password", @id = "inputPassword" } })
+                            <label for="inputPassword">Password</label>
+                            @Html.ValidationMessageFor(model => model.Password1, "", new { @class = "text-danger" })
+                        </div>
+                        @*<div class="form-floating mb-3">
+                            @Html.EditorFor(model => model.Password1, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Password", @type = "password", @id = "inputPassword" } })
+                            <label for="inputPassword">Password</label>
+                            @Html.ValidationMessageFor(model => model.Password1, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-floating mb-3">
+                            @Html.EditorFor(model => model.Password1, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Password", @type = "password", @id = "inputPassword" } })
+                            <label for="inputPassword">Password</label>
+                            @Html.ValidationMessageFor(model => model.Password1, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-floating mb-3">
+                            @Html.EditorFor(model => model.Password1, new { htmlAttributes = new { @class = "form-control input-md", @placeholder = "Password", @type = "password", @id = "inputPassword" } })
+                            <label for="inputPassword">Password</label>
+                            @Html.ValidationMessageFor(model => model.Password1, "", new { @class = "text-danger" })
+                        </div>*@
+                        @*<div class="form-check mb-3">
+            <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+            <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+        </div>*@
+                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+
+
+                            <input type="submit" value="Create Account" class="btn btn-primary" />
+
+                        </div>
+
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <div class="small"><a href="@Url.Action("Login","Accounts")">Have an account? Go to login</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+}

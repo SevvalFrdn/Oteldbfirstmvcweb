@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Oteldbfirstmvcweb.Models.MusteriHesabi>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageadmin.cshtml";
+}
+
+<h4>Müşteri Hesap Listele</h4>
+
+
+
+<p>
+    @Html.ActionLink("Müşteri Hesabı Oluştur", "Yeni", null, new { @class = "btn btn-success" })
+</p>
+<table class="table-striped alert-danger col-md-12">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.MNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.GirisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.CikisTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.KisiSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.OdaNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.SonHesap)
+        </th>
+
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(Model => item.MNo)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.GirisTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.CikisTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.OdaNo)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.SonHesap)
+            </td>
+
+            <td>
+                @Html.ActionLink("Düzenle", "Duzenle", new { id = item.İslemNo }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.İslemNo }, new { @class = "btn btn-success" })
+
+            </td>
+
+        </tr>
+    }
+</table>
+
+
+

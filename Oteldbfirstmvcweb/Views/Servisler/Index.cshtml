@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Oteldbfirstmvcweb.Models.Servisler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageadmin.cshtml";
+}
+
+<h4>Servisleri Listele</h4>
+
+
+
+<p>
+    @Html.ActionLink("Servis Oluştur", "Yeni", null, new { @class = "btn btn-success" })
+</p>
+<table class="table-striped alert-danger col-md-12">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.ServisAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.ServisUcret)
+        </th>
+        
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(Model => item.ServisAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.ServisUcret)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Düzenle", "Duzenle", new { id = item.ServisNo }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.ServisNo }, new { @class = "btn btn-success" })
+
+            </td>
+
+        </tr>
+    }
+</table>
+

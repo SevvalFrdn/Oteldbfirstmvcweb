@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Oteldbfirstmvcweb.Models.Odalar>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageadmin.cshtml";
+}
+
+<h4>Odaları Listele</h4>
+
+
+
+<p>
+    @Html.ActionLink("Oda Oluştur", "Yeni", null, new { @class = "btn btn-success" })
+</p>
+<table class="table-striped alert-danger col-md-12">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.OdaTuru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.YatakSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.OdaFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Model => Model.ServisNo)
+        </th>
+
+
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(Model => item.OdaTuru)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.YatakSayisi)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.OdaFiyat)
+            </td>
+            <td>
+                @Html.DisplayFor(Model => item.ServisNo)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Düzenle", "Duzenle", new { id = item.OdaNo }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Sil", "Delete", new { id = item.OdaNo }, new { @class = "btn btn-success" })
+
+            </td>
+
+        </tr>
+    }
+</table>
+
+
